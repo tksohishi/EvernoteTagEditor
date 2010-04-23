@@ -18,6 +18,8 @@ const NSString* APISecrect = @"85c680de3776cf88";
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
 
+@synthesize isAuth;
+
 - (id)init
 {
     if (self = [super init])
@@ -28,6 +30,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
         THTTPClient *userStoreHTTPClient = [[[THTTPClient alloc] initWithURL:userStoreURL] autorelease];
         TBinaryProtocol *userStoreProtocol = [[[TBinaryProtocol alloc] initWithTransport:userStoreHTTPClient] autorelease];
         userStore = [[[EDAMUserStoreClient alloc] initWithProtocol:userStoreProtocol] autorelease];
+        if ([self getId] && [[self getId] isEqualToString:@""])
+        {
+            [self authenticateWithId:[self getId] withPassword:[self getPassword]];
+        }
     }
     
     return self;
@@ -35,7 +41,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
 
 - (void)authenticateWithId:(NSString*)_id withPassword:(NSString*)_password
 {
-    if (!isAuth && [self isVersionOK])
+    if (!isAuth && [[EvernoteAPI sharedEvernoteAPI] isVersionOK])
     {
         @try
         {

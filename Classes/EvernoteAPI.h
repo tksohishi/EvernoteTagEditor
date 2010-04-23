@@ -19,7 +19,10 @@
     BOOL isAuth;
 }
 
+@property (nonatomic, assign) BOOL isAuth;
+
 + (EvernoteAPI*)sharedEvernoteAPI;
+
 - (void)authenticateWithId:(NSString*)_id withPassword:(NSString*)_password;
 - (BOOL)isVersionOK;
 - (void)storeCredentialWithId:(NSString*)_id withPassword:(NSString*)_password;

@@ -13,6 +13,12 @@
 
 @synthesize idField, passwordField;
 
+- (void)viewDidLoad
+{
+    [self.idField becomeFirstResponder];
+    [super viewDidLoad];
+}
+
 - (IBAction)pressedLogin
 {
     NSString* userName = self.idField.text;
@@ -20,6 +26,16 @@
     
     EvernoteAPI* api = [EvernoteAPI sharedEvernoteAPI];
     [api authenticateWithId:userName withPassword:password];
+    if (api.isAuth)
+    {
+        [api storeCredentialWithId:userName withPassword:password];
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    else {
+        UIActionSheet* sheet = [[[UIActionSheet alloc] initWithTitle:@"Login Error" delegate:nil cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
+        [sheet showInView:self.view];
+    }
+
 }
 
 - (void)dealloc {

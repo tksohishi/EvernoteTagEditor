@@ -19,18 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    EvernoteAPI* api = [EvernoteAPI sharedEvernoteAPI];
-    [api authenticateWithId:@"starsky5" withPassword:@"starsky5"];
-    self.tags = [api getTags];
+    api = [EvernoteAPI sharedEvernoteAPI];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    // left: add button
-    
-    // right: logout button
-    //UINavigationItem* rightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (!api.isAuth)
+    {
+        [self presentModalViewController:[[CredentialViewController alloc] initWithNibName:@"CredentialViewController" bundle:nil] animated:YES];
+    }
+    [super viewDidAppear:animated];
 }
 
 - (void)dealloc {
@@ -68,6 +71,11 @@
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
 	 */
+}
+
+- (IBAction)pressedAdd
+{
+
 }
 
 @end
