@@ -15,24 +15,32 @@
 
 @implementation EvernoteTagEditorViewController
 
-@synthesize tags;
+@synthesize tags, tagTableView;
 
 - (void)viewDidLoad {
+    NSLog(@"viewDidLoad");
     [super viewDidLoad];
     api = [EvernoteAPI sharedEvernoteAPI];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"viewWillAppear");
+    if (api.isAuth)
+    {
+        self.tags = [api getTags];
+    }
     [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    NSLog(@"viewDidAppear");
     if (!api.isAuth)
     {
         [self presentModalViewController:[[CredentialViewController alloc] initWithNibName:@"CredentialViewController" bundle:nil] animated:YES];
     }
+
     [super viewDidAppear:animated];
 }
 
@@ -73,6 +81,8 @@
 	 */
 }
 
+#pragma mark -
+#pragma mark IB Action
 - (IBAction)pressedAdd
 {
 

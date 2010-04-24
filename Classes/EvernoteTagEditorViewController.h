@@ -11,9 +11,11 @@
 @interface EvernoteTagEditorViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
     EvernoteAPI* api;
     NSArray* tags;
+    IBOutlet UITableView* tagTableView;
 }
 
 @property (nonatomic, retain) NSArray* tags;
+@property (nonatomic, retain) IBOutlet UITableView* tagTableView;
 
 - (IBAction)pressedAdd;
 

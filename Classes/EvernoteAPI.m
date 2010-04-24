@@ -27,7 +27,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
         THTTPClient* userStoreHTTPClient = [[[THTTPClient alloc] initWithURL:userStoreURL] autorelease];
         TBinaryProtocol* userStoreProtocol = [[[TBinaryProtocol alloc] initWithTransport:userStoreHTTPClient] autorelease];
         userStore = [[EDAMUserStoreClient alloc] initWithProtocol:userStoreProtocol];
-        if ([self getId] && [[self getId] isEqualToString:@""])
+        if ([self getId] && ![[self getId] isEqualToString:@""])
         {
             NSLog(@"id: %@, password: %@", [self getId], [self getPassword]);
             [self authenticateWithId:[self getId] withPassword:[self getPassword]];
@@ -40,6 +40,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
 - (void)dealloc
 {
     [userStore release];
+    [noteStore release];
+    [user release];
+    [authToken release];
     [super dealloc];
 }
 
@@ -50,14 +53,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
         @try
         {
             EDAMAuthenticationResult* authResult = [userStore authenticate:_id :_password :[NSString stringWithFormat:@"%@", kAPIKey] :[NSString stringWithFormat:@"%@", kAPISecrect]];
-            user = [authResult user];
-            authToken = [authResult authenticationToken];
+            user = [[authResult user] retain];
+            authToken = [[authResult authenticationToken] retain];
 
             // noteStore
             NSURL* noteStoreURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kNoteStoreURLBase, [user shardId]]];
             THTTPClient* noteStoreHTTPClient = [[[THTTPClient alloc] initWithURL:noteStoreURL] autorelease];
             TBinaryProtocol* noteStoreProtocol = [[[TBinaryProtocol alloc] initWithTransport:noteStoreHTTPClient] autorelease];
-            noteStore = [[[EDAMNoteStoreClient alloc] initWithProtocol:noteStoreProtocol] autorelease];
+            noteStore = [[EDAMNoteStoreClient alloc] initWithProtocol:noteStoreProtocol];
             isAuth = YES;
         }
         @catch (NSException * e) {
