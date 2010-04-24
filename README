@@ -5,5 +5,7 @@ After you log in,
 - You can add a new tag
 - You can delete a tag
 
+If you want to login against evernote live server, please comment out the line "#define SANDBOX 1" on Classes/Constants.h
+
 KNOWN ISSUE
 - It seems that NoteStore.expungeTag API dosen't work, so now you can't delete a tag from your list
