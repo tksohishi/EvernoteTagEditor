@@ -6,8 +6,6 @@
 //  Copyright DeNA Global, Inc. 2010. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface EvernoteTagEditorAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
     UINavigationController *navigationController;

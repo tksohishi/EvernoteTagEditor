@@ -11,7 +11,6 @@
 #import "EvernoteAPI+Tag.h"
 #import "CredentialViewController.h"
 #import "AddTagViewController.h"
-
 #import "NoteStore.h"
 
 @implementation EvernoteTagEditorViewController

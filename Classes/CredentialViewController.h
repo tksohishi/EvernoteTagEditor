@@ -6,9 +6,6 @@
 //  Copyright 2010 DeNA Global, Inc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-
 @interface CredentialViewController : UIViewController<UITextFieldDelegate> {
     IBOutlet UITextField* idField;
     IBOutlet UITextField* passwordField;
