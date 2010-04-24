@@ -8,14 +8,12 @@
 
 #import "EvernoteAPI.h"
 
-@interface EvernoteTagEditorViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+@interface EvernoteTagEditorViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource> {
     EvernoteAPI* api;
     NSArray* tags;
-    IBOutlet UITableView* tagTableView;
 }
 
 @property (nonatomic, retain) NSArray* tags;
-@property (nonatomic, retain) IBOutlet UITableView* tagTableView;
 
 - (IBAction)pressedAdd;
 

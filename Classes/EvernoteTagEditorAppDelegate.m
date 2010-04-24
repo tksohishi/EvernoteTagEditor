@@ -14,11 +14,11 @@
 @implementation EvernoteTagEditorAppDelegate
 
 @synthesize window;
-@synthesize viewController;
+@synthesize navigationController;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [window addSubview:viewController.view];
+    [window addSubview:navigationController.view];
     [window makeKeyAndVisible];
 	
 	return YES;
@@ -26,7 +26,7 @@
 
 
 - (void)dealloc {
-    [viewController release];
+    [navigationController release];
     [window release];
     [super dealloc];
 }

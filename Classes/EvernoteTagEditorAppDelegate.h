@@ -13,10 +13,11 @@
 @interface EvernoteTagEditorAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
     EvernoteTagEditorViewController *viewController;
+    UINavigationController *navigationController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet EvernoteTagEditorViewController *viewController;
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 @end
 

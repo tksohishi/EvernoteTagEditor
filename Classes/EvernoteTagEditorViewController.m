@@ -16,12 +16,13 @@
 
 @implementation EvernoteTagEditorViewController
 
-@synthesize tags, tagTableView;
+@synthesize tags;
 
 - (void)viewDidLoad {
     NSLog(@"viewDidLoad");
     [super viewDidLoad];
     api = [EvernoteAPI sharedEvernoteAPI];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -64,6 +65,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = [(EDAMTag*)[self.tags objectAtIndex:indexPath.row] name];
     
     return cell;    
@@ -80,6 +82,23 @@
 	 [self.navigationController pushViewController:detailViewController animated:YES];
 	 [detailViewController release];
 	 */
+}
+
+- (void)setEditing:(BOOL)flag animated:(BOOL)animated
+{
+    [super setEditing:flag animated:animated];
+    
+    if (flag == YES){
+        
+        // ビューを編集可能なビューに切り替える
+        
+    }
+    
+    else {
+        
+        // 必要であれば変更を保存し、ビューを編集不能なビューに切り替える
+        
+    }
 }
 
 #pragma mark -
