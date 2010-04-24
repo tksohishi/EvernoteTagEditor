@@ -11,5 +11,5 @@
 @interface EvernoteAPI (Tag)
 - (NSArray*)getTags;
 - (void)createTag:(NSString*)tagName;
-- (void)deleteTag;
+- (void)deleteTag:(EDAMTag*)tag;
 @end

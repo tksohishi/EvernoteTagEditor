@@ -21,7 +21,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
     if (self = [super init])
     {
         // initilize
-        NSLog(@"initilize");
+        NSLog(@"Evernote API initilize");
         // userStore
         NSURL* userStoreURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", kUserStoreURLBase]];
         THTTPClient* userStoreHTTPClient = [[[THTTPClient alloc] initWithURL:userStoreURL] autorelease];
@@ -29,7 +29,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
         userStore = [[EDAMUserStoreClient alloc] initWithProtocol:userStoreProtocol];
         if ([self getId] && ![[self getId] isEqualToString:@""])
         {
-            NSLog(@"id: %@, password: %@", [self getId], [self getPassword]);
+            //NSLog(@"id: %@, password: %@", [self getId], [self getPassword]);
             [self authenticateWithId:[self getId] withPassword:[self getPassword]];
         }
     }

@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class EvernoteTagEditorViewController;
-
 @interface EvernoteTagEditorAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
-    EvernoteTagEditorViewController *viewController;
     UINavigationController *navigationController;
 }
 

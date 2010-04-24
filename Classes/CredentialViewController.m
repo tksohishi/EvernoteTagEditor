@@ -8,6 +8,7 @@
 
 #import "CredentialViewController.h"
 #import "EvernoteAPI.h"
+#import "Constants.h"
 
 @interface CredentialViewController (Internal)
 - (void)_login;
@@ -15,11 +16,16 @@
 
 @implementation CredentialViewController
 
-@synthesize idField, passwordField;
+@synthesize idField, passwordField, targetNameLabel;
 
 - (void)viewDidLoad
 {
     [self.idField becomeFirstResponder];
+#ifdef SANDBOX
+    self.targetNameLabel.text = @"Evernote Sandbox Login";
+#else
+    self.targetNameLabel.text = @"Evernote Live Login";
+#endif
     [super viewDidLoad];
 }
 

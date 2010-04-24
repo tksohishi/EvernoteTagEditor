@@ -23,8 +23,9 @@
     [tag release];
 }
 
-- (void)deleteTag
+- (void)deleteTag:(EDAMTag*)tag;
 {
+    [noteStore expungeTag:authToken :tag.guid];
 }
 
 @end

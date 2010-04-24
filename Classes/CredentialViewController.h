@@ -13,10 +13,12 @@
     IBOutlet UITextField* idField;
     IBOutlet UITextField* passwordField;
     IBOutlet UIButton* loginButton;
+    IBOutlet UILabel* targetNameLabel;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField* idField;
 @property (nonatomic, retain) IBOutlet UITextField* passwordField;
+@property (nonatomic, retain) IBOutlet UILabel* targetNameLabel;
 
 - (IBAction)pressedLogin;
 

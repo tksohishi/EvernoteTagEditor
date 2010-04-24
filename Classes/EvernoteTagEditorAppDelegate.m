@@ -8,14 +8,12 @@
 
 #import "EvernoteTagEditorAppDelegate.h"
 #import "EvernoteTagEditorViewController.h"
-
 #import "EvernoteAPI.h"
 
 @implementation EvernoteTagEditorAppDelegate
 
 @synthesize window;
 @synthesize navigationController;
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [window addSubview:navigationController.view];

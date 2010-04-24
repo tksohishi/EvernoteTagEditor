@@ -32,7 +32,6 @@
     @try
     {
         [[EvernoteAPI sharedEvernoteAPI] createTag:tagNameField.text];
-        NSLog(@"add Tag");
     }
     @catch (NSException * e) {
         NSLog(@"Caught %@: %@", [e name], [e reason]);
