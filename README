@@ -1,0 +1,9 @@
+Evernote Tag Editor for iPhone
+
+After you log in,
+- You can see the list of your tags
+- You can add a new tag
+- You can delete a tag
+
+KNOWN ISSUE
+- It seems that NoteStore.expungeTag API dosen't work, so now you can't delete a tag from your list
