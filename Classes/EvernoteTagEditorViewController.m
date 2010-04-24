@@ -22,6 +22,9 @@
     NSLog(@"viewDidLoad");
     [super viewDidLoad];
     api = [EvernoteAPI sharedEvernoteAPI];
+    
+    self.navigationItem.title = @"Tag List";
+    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(pressedAdd)] autorelease];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -69,19 +72,6 @@
     cell.textLabel.text = [(EDAMTag*)[self.tags objectAtIndex:indexPath.row] name];
     
     return cell;    
-}
-
-#pragma mark -
-#pragma mark UITableView Delegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
 }
 
 - (void)setEditing:(BOOL)flag animated:(BOOL)animated
