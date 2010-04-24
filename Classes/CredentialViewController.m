@@ -9,6 +9,10 @@
 #import "CredentialViewController.h"
 #import "EvernoteAPI.h"
 
+@interface CredentialViewController (Internal)
+- (void)_login;
+@end
+
 @implementation CredentialViewController
 
 @synthesize idField, passwordField;
@@ -21,6 +25,11 @@
 
 - (IBAction)pressedLogin
 {
+    [self _login];
+}
+
+- (void)_login
+{
     NSString* userName = self.idField.text;
     NSString* password = self.passwordField.text;
     
@@ -28,14 +37,14 @@
     [api authenticateWithId:userName withPassword:password];
     if (api.isAuth)
     {
+        NSLog(@"Login Success");
         [api storeCredentialWithId:userName withPassword:password];
         [self dismissModalViewControllerAnimated:YES];
     }
     else {
-        UIActionSheet* sheet = [[[UIActionSheet alloc] initWithTitle:@"Login Error" delegate:nil cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:nil] autorelease];
-        [sheet showInView:self.view];
+        UIAlertView* alert = [[[UIAlertView alloc] initWithTitle:@"Login Error" message:@"Login Error" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+        [alert show];
     }
-
 }
 
 - (void)dealloc {
@@ -44,5 +53,18 @@
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark UITextField Delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+	if (textField == idField) {
+		[textField resignFirstResponder];
+		[passwordField becomeFirstResponder];
+	}
+	else if (textField == passwordField) {
+		[textField resignFirstResponder];
+        [self _login];
+    }
+    return YES;
+}
 
 @end

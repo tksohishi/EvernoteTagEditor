@@ -8,11 +8,7 @@
 
 #import "EvernoteAPI.h"
 #import "SynthesizeSingleton.h"
-
-const NSString* userStoreURLBase = @"https://sandbox.evernote.com/edam/user";
-const NSString* noteStoreURLBase = @"http://sandbox.evernote.com/edam/note/";
-const NSString* APIKey = @"starsky5";
-const NSString* APISecrect = @"85c680de3776cf88";
+#import "Constants.h"
 
 @implementation EvernoteAPI
 
@@ -25,18 +21,26 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
     if (self = [super init])
     {
         // initilize
+        NSLog(@"initilize");
         // userStore
-        NSURL* userStoreURL = [NSURL URLWithString:@"https://sandbox.evernote.com/edam/user"];
-        THTTPClient *userStoreHTTPClient = [[[THTTPClient alloc] initWithURL:userStoreURL] autorelease];
-        TBinaryProtocol *userStoreProtocol = [[[TBinaryProtocol alloc] initWithTransport:userStoreHTTPClient] autorelease];
-        userStore = [[[EDAMUserStoreClient alloc] initWithProtocol:userStoreProtocol] autorelease];
+        NSURL* userStoreURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", kUserStoreURLBase]];
+        THTTPClient* userStoreHTTPClient = [[[THTTPClient alloc] initWithURL:userStoreURL] autorelease];
+        TBinaryProtocol* userStoreProtocol = [[[TBinaryProtocol alloc] initWithTransport:userStoreHTTPClient] autorelease];
+        userStore = [[EDAMUserStoreClient alloc] initWithProtocol:userStoreProtocol];
         if ([self getId] && [[self getId] isEqualToString:@""])
         {
+            NSLog(@"id: %@, password: %@", [self getId], [self getPassword]);
             [self authenticateWithId:[self getId] withPassword:[self getPassword]];
         }
     }
     
     return self;
+}
+
+- (void)dealloc
+{
+    [userStore release];
+    [super dealloc];
 }
 
 - (void)authenticateWithId:(NSString*)_id withPassword:(NSString*)_password
@@ -45,14 +49,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(EvernoteAPI);
     {
         @try
         {
-            EDAMAuthenticationResult *authResult = [userStore authenticate:_id :_password :@"starsky5" :@"85c680de3776cf88"];
+            EDAMAuthenticationResult* authResult = [userStore authenticate:_id :_password :[NSString stringWithFormat:@"%@", kAPIKey] :[NSString stringWithFormat:@"%@", kAPISecrect]];
             user = [authResult user];
             authToken = [authResult authenticationToken];
 
             // noteStore
-            NSURL *noteStoreURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", noteStoreURLBase, [user shardId]]];
-            THTTPClient *noteStoreHTTPClient = [[[THTTPClient alloc] initWithURL:noteStoreURL] autorelease];
-            TBinaryProtocol *noteStoreProtocol = [[[TBinaryProtocol alloc] initWithTransport:noteStoreHTTPClient] autorelease];
+            NSURL* noteStoreURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kNoteStoreURLBase, [user shardId]]];
+            THTTPClient* noteStoreHTTPClient = [[[THTTPClient alloc] initWithURL:noteStoreURL] autorelease];
+            TBinaryProtocol* noteStoreProtocol = [[[TBinaryProtocol alloc] initWithTransport:noteStoreHTTPClient] autorelease];
             noteStore = [[[EDAMNoteStoreClient alloc] initWithProtocol:noteStoreProtocol] autorelease];
             isAuth = YES;
         }

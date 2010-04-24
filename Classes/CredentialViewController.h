@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CredentialViewController : UIViewController {
+@interface CredentialViewController : UIViewController<UITextFieldDelegate> {
     IBOutlet UITextField* idField;
     IBOutlet UITextField* passwordField;
     IBOutlet UIButton* loginButton;

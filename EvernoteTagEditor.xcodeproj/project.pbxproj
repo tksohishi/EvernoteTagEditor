@@ -28,6 +28,7 @@
 		14292BDE1181451200F12D03 /* EvernoteAPI+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 14292BDD1181451200F12D03 /* EvernoteAPI+Tag.m */; };
 		14292C411181537800F12D03 /* CredentialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14292C3F1181537800F12D03 /* CredentialViewController.m */; };
 		14292C421181537800F12D03 /* CredentialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14292C401181537800F12D03 /* CredentialViewController.xib */; };
+		14292DEA1183584000F12D03 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 14292DE91183584000F12D03 /* Constants.m */; };
 		1D3623260D0F684500981E51 /* EvernoteTagEditorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* EvernoteTagEditorAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -86,6 +87,8 @@
 		14292C3E1181537800F12D03 /* CredentialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialViewController.h; sourceTree = "<group>"; };
 		14292C3F1181537800F12D03 /* CredentialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialViewController.m; sourceTree = "<group>"; };
 		14292C401181537800F12D03 /* CredentialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CredentialViewController.xib; path = Classes/CredentialViewController.xib; sourceTree = "<group>"; };
+		14292DE81183584000F12D03 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		14292DE91183584000F12D03 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* EvernoteTagEditorAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteTagEditorAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* EvernoteTagEditorAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvernoteTagEditorAppDelegate.m; sourceTree = "<group>"; };
@@ -118,6 +121,10 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				14292DE81183584000F12D03 /* Constants.h */,
+				14292DE91183584000F12D03 /* Constants.m */,
+				14292C3E1181537800F12D03 /* CredentialViewController.h */,
+				14292C3F1181537800F12D03 /* CredentialViewController.m */,
 				14292BCF11813D5E00F12D03 /* EvernoteAPI.h */,
 				14292BD011813D5E00F12D03 /* EvernoteAPI.m */,
 				14292BDC1181451200F12D03 /* EvernoteAPI+Tag.h */,
@@ -126,8 +133,6 @@
 				1D3623250D0F684500981E51 /* EvernoteTagEditorAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* EvernoteTagEditorViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* EvernoteTagEditorViewController.m */,
-				14292C3E1181537800F12D03 /* CredentialViewController.h */,
-				14292C3F1181537800F12D03 /* CredentialViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				14292BD111813D5E00F12D03 /* EvernoteAPI.m in Sources */,
 				14292BDE1181451200F12D03 /* EvernoteAPI+Tag.m in Sources */,
 				14292C411181537800F12D03 /* CredentialViewController.m in Sources */,
+				14292DEA1183584000F12D03 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

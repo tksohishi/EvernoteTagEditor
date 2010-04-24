@@ -31,8 +31,3 @@
 - (void)logout;
 
 @end
-
-extern const NSString* userStoreURLBase;
-extern const NSString* noteStoreURLBase;
-extern const NSString* APIKey;
-extern const NSString* APISecrect;
