@@ -10,6 +10,7 @@
 #import "EvernoteAPI.h"
 #import "EvernoteAPI+Tag.h"
 #import "CredentialViewController.h"
+#import "AddTagViewController.h"
 
 #import "NoteStore.h"
 
@@ -85,7 +86,7 @@
 #pragma mark IB Action
 - (IBAction)pressedAdd
 {
-
+    [self presentModalViewController:[[AddTagViewController alloc] initWithNibName:@"AddTagViewController" bundle:nil] animated:YES];
 }
 
 @end

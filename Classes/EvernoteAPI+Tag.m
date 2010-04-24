@@ -18,7 +18,11 @@
 
 - (void)createTag:(NSString*)tagName
 {
+    EDAMTag* tag = [[EDAMTag alloc] initWithGuid:nil name:tagName parentGuid:nil updateSequenceNum:0];
+    [noteStore createTag:authToken :tag];
+    [tag release];
 }
+
 - (void)deleteTag
 {
 }

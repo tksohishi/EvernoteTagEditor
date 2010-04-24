@@ -29,6 +29,8 @@
 		14292C411181537800F12D03 /* CredentialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14292C3F1181537800F12D03 /* CredentialViewController.m */; };
 		14292C421181537800F12D03 /* CredentialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14292C401181537800F12D03 /* CredentialViewController.xib */; };
 		14292DEA1183584000F12D03 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 14292DE91183584000F12D03 /* Constants.m */; };
+		14292F611183876D00F12D03 /* AddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14292F5F1183876D00F12D03 /* AddTagViewController.m */; };
+		14292F621183876D00F12D03 /* AddTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14292F601183876D00F12D03 /* AddTagViewController.xib */; };
 		1D3623260D0F684500981E51 /* EvernoteTagEditorAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* EvernoteTagEditorAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -89,6 +91,9 @@
 		14292C401181537800F12D03 /* CredentialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CredentialViewController.xib; path = Classes/CredentialViewController.xib; sourceTree = "<group>"; };
 		14292DE81183584000F12D03 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		14292DE91183584000F12D03 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		14292F5E1183876D00F12D03 /* AddTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTagViewController.h; sourceTree = "<group>"; };
+		14292F5F1183876D00F12D03 /* AddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTagViewController.m; sourceTree = "<group>"; };
+		14292F601183876D00F12D03 /* AddTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AddTagViewController.xib; path = Classes/AddTagViewController.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* EvernoteTagEditorAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteTagEditorAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* EvernoteTagEditorAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvernoteTagEditorAppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +126,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				14292F5E1183876D00F12D03 /* AddTagViewController.h */,
+				14292F5F1183876D00F12D03 /* AddTagViewController.m */,
 				14292DE81183584000F12D03 /* Constants.h */,
 				14292DE91183584000F12D03 /* Constants.m */,
 				14292C3E1181537800F12D03 /* CredentialViewController.h */,
@@ -275,6 +282,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				14292F601183876D00F12D03 /* AddTagViewController.xib */,
 				14292C401181537800F12D03 /* CredentialViewController.xib */,
 				2899E5210DE3E06400AC0155 /* EvernoteTagEditorViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
@@ -338,6 +346,7 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* EvernoteTagEditorViewController.xib in Resources */,
 				14292C421181537800F12D03 /* CredentialViewController.xib in Resources */,
+				14292F621183876D00F12D03 /* AddTagViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +381,7 @@
 				14292BDE1181451200F12D03 /* EvernoteAPI+Tag.m in Sources */,
 				14292C411181537800F12D03 /* CredentialViewController.m in Sources */,
 				14292DEA1183584000F12D03 /* Constants.m in Sources */,
+				14292F611183876D00F12D03 /* AddTagViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
